@@ -19,10 +19,7 @@ while blnOperational:
     else:
         try:
             drink_choice = menu.find_drink(User_Selection)
-            if coffee_machine.is_resource_sufficient(drink_choice):
-                if money_machine.make_payment(drink_choice.cost):
-                    coffee_machine.make_coffee(drink_choice)
-                else:
-                    print("Sorry that's not enough money. Money refunded.")
+            if coffee_machine.is_resource_sufficient(drink_choice) and money_machine.make_payment(drink_choice.cost):
+                coffee_machine.make_coffee(drink_choice)
         except:
             print("Enter a valid selection.")
